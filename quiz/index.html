@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GestForte Planos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="imagens/question.png" type="image/x-icon">
+</head>
+<body>
+    <img src="imagens/gradiente-preto.png" id="gradiente"  alt="">
+    <div id="tela_inicial">
+        <div class="faixa">
+            
+        </div>
+        <div style="display: block;" id="card_inicial" class="card">
+            <span class="titulo_card">BEM VINDO!</span>
+                <br><br>
+            <span class="sub_titulo"><b>ESTE É O ASSISTENTE DE CONTRATAÇÃO DE PLANOS DA GEST FORTE</b></span>
+                <br><br><br>
+            <span class="sub_titulo">Seu nome:</span>
+                <br>
+            <input  class="input" id="input_nome" type="text">
+                <br><br>
+            <span class="sub_titulo">Seu Email:</span>
+                <br>
+            <input class="input" id="input_email" type="text">
+                <br><br><br><br>
+            <button id="btn_iniciar" onclick="valida_nome()" type="submit">Iniciar</button>
+                <br><br><br>
+            <span uppercase class="sub_titulo"><b>Nesta ferramenta, você consegue identificar qual o plano ideal para o seu modelo de negócio, clique em "Iniciar"</b></span>
+                
+        </div>
+    </div>
+        <div id="tela_itens" style="display: none;">
+            <div id="card_inicial" class="card">
+                <button onclick="mostra_tela_inicial()" class="btn_voltar"><i class='bx bxs-left-arrow-circle'></i></button>
+                <span class="titulo_card">RECURSOS BASE</span>
+                    <br><br>
+                <span class="sub_titulo">Antes vamos destacar alguns recursos que estão presentes em todos os planos, <b>CLIQUE</b> para saber mais sobre cada função.</span>
+                    <br><br><br>
+                <div id="div_itens">
+                    <button onclick="mostra_card_d1()" id="btn_pedido_venda" class="btn_legenda_itens"><i class='bx bx-plus-circle'></i> Pedido de Venda</button>
+                        <br>
+                    <div style="display: none;" id="card_d1" class="card_descricao">
+                        <span id="desc_pedido_venda" class="sub_titulo">O Pedido de Venda é um documento emitido por um vendedor para o cliente. No pedido emitido é formalizada a negociação, especificando detalhes do produto ou serviço contratado. Além de informar detalhes como preço, quantidade e termo e condição da operação.(Não se trata de um documento fiscal).</span>
+                    </div>
+                        <br>
+                    <button onclick="mostra_card_d2()" id="btn_pedido_venda" class="btn_legenda_itens"><i class='bx bx-plus-circle'></i> Cadastro de Produtos</button>
+                        <br>
+                    <div style="display: none;" id="card_d2" class="card_descricao">
+                        <span id="desc_cad_prod" class="sub_titulo">O Cadastro de Produtos serve para catalogar todos os seus produtos, configurando perfil tributário, com opção de configurar código de barras e etiquetas para estes produtos por exemplo.</span>
+                    </div>
+                        <br>
+                    <button onclick="mostra_card_d3()" id="btn_pedido_venda" class="btn_legenda_itens"><i class='bx bx-plus-circle'></i> Cadastro de Clientes</button>
+                        <br>
+                    <div style="display: none;" id="card_d3" class="card_descricao">
+                        <span id="desc_cad_cliete" class="sub_titulo">O Cadastro de Clientes é um processo de gestão para registrar e organizar informações sobre os clientes de uma empresa, incluindo pessoas físicas que são consumidores e outras empresas com que a organização mantém um relacionamento comercial</span>
+                    </div>
+                        <br>
+                    <button onclick="mostra_card_d4()" id="btn_pedido_venda" class="btn_legenda_itens"><i class='bx bx-plus-circle'></i> Sintegra</button>
+                        <br>
+                    <div style="display: none;" id="card_d4" class="card_descricao">
+                        <span id="desc_sintegra" class="sub_titulo">Se trata de um sistema que une todos os dados relacionados às transações de entrada e saída de mercadorias ou prestação de serviço dos contribuintes do ICMS. É então gerado um arquivo com todas informações que são necessárias para regulação fiscal.</span>
+                    </div>
+                </div>
+                    <br>
+                    <button class="btn_card" onclick="mostra_tela_nf()">Continuar</button>
+            </div>
+        </div>
+        <div id="tela_nf" style="display: none;">
+            <div class="card">
+                <button onclick="mostra_tela_itens()" class="btn_voltar"><i class='bx bxs-left-arrow-circle'></i></button>
+                <span class="titulo_card">Pergunta 1</span>
+                    <br><br>
+                <span class="sub_titulo">Você vai precisar emitir <b>NF-e ?</b></span>
+                    <br><br><br>
+                <span class="sub_titulo">Emissão de notas fiscais eletrônicas</span>
+                    <br><br>
+                <div class="div_btn_resposta">
+                    <button onclick="sim_nf()" id="btn_nf_1" class="btn_resposta">Sim <i class='bx bxs-user-check'></i></button>
+                    <button onclick="nao_nf()" id="btn_nf_0" class="btn_resposta">Não <i class='bx bxs-user-x'></i></button>
+                        <br><br><br>
+                    <span><b>Sua resposta:</b><input type="text" class="resposta_txt" id="txt_nf" disabled></span>
+                        <br><br><br><br>
+                </div>
+            </div>
+        </div>
+        <div id="tela_finan" style="display: none;">
+            <div class="card">
+                <button onclick="mostra_tela_nf()" class="btn_voltar"><i class='bx bxs-left-arrow-circle'></i></button>
+                <span class="titulo_card">Pergunta 2</span>
+                    <br><br>
+                <span class="sub_titulo">Você vai precisar fazer um<b> Controle Financeiro</b> do seu negócio?</span>
+                    <br><br>
+                <span class="sub_titulo">Controle de movimentações financeiras, receitas e despesas, relatórios detalhados com filtragem por períodos.</span>
+                    <br><br><br>
+                <div class="div_btn_resposta">
+                    <button onclick="sim_finan()" class="btn_resposta" id="sim_finan">Sim <i class='bx bxs-user-check'></i></button>
+                    <button onclick="nao_finan()" class="btn_resposta" id="nao_finan">Não <i class='bx bxs-user-x'></i></button>
+                        <br><br><br>
+                        <span><b>Sua resposta:</b><input type="text" class="resposta_txt" id="txt_finan" disabled></span><br><br><br><br>
+                </div>
+            </div>
+        </div>
+        <div id="tela_cupom" style="display: none;">
+            <div class="card">
+                <button onclick="mostra_tela_finan()" class="btn_voltar"><i class='bx bxs-left-arrow-circle'></i></button>
+                <span class="titulo_card">Pergunta 3</span>
+                    <br><br>
+                <span class="sub_titulo">Você vai precisar emitir<b> Cupons Fiscais</b> para seus clientes?</span>
+                    <br><br>
+                <span class="sub_titulo">O cupom fiscal é o documento que serve para documentar e comprovar uma transação comercial realizada entre estabelecimento e consumidor final.</span>
+                    <br><br><br>
+                <div class="div_btn_resposta">
+                    <button onclick="sim_cupom()" class="btn_resposta" id="sim_cupom">Sim <i class='bx bxs-user-check'></i></button>
+                    <button onclick="nao_cupom()" class="btn_resposta" id="nao_cupom">Não <i class='bx bxs-user-x'></i></button>
+                        <br><br><br>
+                        <span><b>Sua resposta:</b><input type="text" class="resposta_txt" id="txt_cupom" disabled></span><br><br><br><br>
+                </div>
+            </div>
+        </div>
+        <div id="tela_estoque" style="display: none;">
+            <div class="card">
+                <button onclick="mostra_tela_cupom()" class="btn_voltar"><i class='bx bxs-left-arrow-circle'></i></button>
+                <span class="titulo_card">Pergunta 4</span>
+                    <br><br>
+                <span class="sub_titulo">Você vai precisar fazer um<b> Controle de Estoque</b> no seu modelo de negócio?</span>
+                    <br><br>
+                <span class="sub_titulo">Controle na quantidade dos produtos disponíveis, inventário, registro de entrada de estoque, saída, perdas, tudo isso registrado e com relatórios disponíveis para emissão, de acordo com a sua necessidade.</span>
+                    <br><br><br>
+                <div class="div_btn_resposta">
+                    <button onclick="sim_estoque()" class="btn_resposta" id="sim_estoque">Sim <i class='bx bxs-user-check'></i></button>
+                    <button onclick="nao_estoque()" class="btn_resposta" id="nao_estoque">Não <i class='bx bxs-user-x'></i></button>
+                        <br><br><br>
+                        <span><b>Sua resposta:</b><input type="text" class="resposta_txt" id="txt_estoque" disabled></span><br><br><br><br>
+                </div>
+            </div>
+        </div>
+        <div id="tela_pdv" style="display: none;">
+            <div class="card">
+                <button onclick="mostra_tela_estoque()" class="btn_voltar"><i class='bx bxs-left-arrow-circle'></i></button>
+                <span class="titulo_card">Pergunta 5</span>
+                    <br><br>
+                <span class="sub_titulo">Você vai precisar de um<b> Ponto de Venda</b>?</span>
+                    <br><br>
+                <span class="sub_titulo">o <b>PDV </b>ou "Ponto de Venda" é a ferramenta que registra as vendas e emite notas e cupons fiscais. Trata-se de um software que auxilia a empresa na frente de caixa.</span>
+                    <br><br><br>
+                <div class="div_btn_resposta">
+                    <button onclick="sim_pdv()" class="btn_resposta" id="sim_pdv">Sim <i class='bx bxs-user-check'></i></button>
+                    <button onclick="nao_pdv()" class="btn_resposta" id="nao_pdv">Não <i class='bx bxs-user-x'></i></button>
+                        <br><br><br>
+                        <span><b>Sua resposta:</b><input type="text" class="resposta_txt" id="txt_pdv" disabled></span><br><br><br><br>
+                </div>
+            </div>
+        </div>
+        <div id="tela_boleto" style="display: none;">
+            <div class="card">
+                <button onclick="mostra_tela_pdv()" class="btn_voltar"><i class='bx bxs-left-arrow-circle'></i></button>
+                <span class="titulo_card">Pergunta 6</span>
+                    <br><br>
+                <span class="sub_titulo">Você precisa gerar<b> Boletos</b>?</span>
+                    <br><br>
+                <span class="sub_titulo"><b>Tempo e dinheiro</b> são as principais vantagens de emitir boleto por um sistema de emissão. A emissão por banco é custosa e demorada, o que leva a menos clientes em sua loja virtual</span>
+                    <br><br><br>
+                <div class="div_btn_resposta">
+                    <button onclick="sim_boleto()" class="btn_resposta" id="sim_boleto">Sim <i class='bx bxs-user-check'></i></button>
+                    <button onclick="nao_boleto()" class="btn_resposta" id="nao_boleto">Não <i class='bx bxs-user-x'></i></button>
+                        <br><br><br>
+                        <span><b>Sua resposta:</b><input type="text" class="resposta_txt" id="txt_boleto" disabled></span><br><br><br><br>
+                    <button id="btn_5" style="display: none;"  class="btn_card">Gerar Resultado</button>
+                </div>
+            </div>
+            
+        </div><span class="sub_titulo">Prado System <i class='bx bx-planet'></i></span>
+        <div id="resultado_1" style="display: none;">
+            <div class="card_resultado">
+                    
+                <div id="div_titulo_card">
+                    <span class="titulo_card"><input type="text" value="Roberto Carlos" id="nome" class="class_txt_resultado1" disabled><br> o plano ideal pra você é o <input disabled value="" type="text" id="plano" class="class_txt_resultado"></span></div>
+                    <br><br><br>
+                
+                <div id="card_nf" class="card_plano" style="display: none;">
+                    <span class="sub_titulo">Confira abaixo os detalhes do<b> seu plano</b></span> 
+                        <br><br>
+                    <span class="sub_titulo"><b>GESTPLUS - NOTAS</b></span>
+                        <br><br>
+                    <span class="sub_titulo">Sistema espeífico para emissão de NF-E NFC-E</span>
+                        <br><br>
+                    <span class="sub_titulo"><b>- Pedido de Venda</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Emissão de NF-e</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Cadastro de Produto</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Cadastro de Cliente</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Cadastro de Grupos</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Sintegra/Speed</b></span>
+                        <br><br>
+                    <a href="https://gestforte.juntos.vc/#/planos/contratar/1?quantidadeParcelas=1" target="_blank"><button class="btn_contratar">Contratar</button></a>
+                </div>
+                <div id="card_pdv" class="card_plano" style="display: none;">
+                    <span class="sub_titulo">Confira abaixo os detalhes do<b> seu plano</b></span> 
+                        <br><br>
+                    <span class="sub_titulo"><b>GESTPLUS - PDV</b></span>
+                        <br><br>
+                    <span class="sub_titulo">Sistema específico para emissão de NF-E NFC-E, com controle Financeiro</span>
+                        <br><br>
+                    <span class="sub_titulo"><b>- Pedido de Venda</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Emissão de NF-e e NFC</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Controle Financeiro</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Cadastro de Produto</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Cadastro de Cliente</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Cadastro de Grupos</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Sintegra/Speed</b></span>
+                        <br><br>
+                    <a href="https://gestforte.juntos.vc/#/planos/contratar/2?quantidadeParcelas=1" target="_blank"><button class="btn_contratar">Contratar</button></a>
+                </div>
+                <div id="card_pro" class="card_plano" style="display: none;">
+                    <span class="sub_titulo">Confira abaixo os detalhes do<b> seu plano</b></span> 
+                        <br><br>
+                    <span class="sub_titulo"><b>GESTPLUS - PRO</b></span>
+                        <br><br>
+                    <span class="sub_titulo">Sistema de emissão de NFE e NFC. com controle Financeiro e de Estoque</span>
+                        <br><br>
+                    <span class="sub_titulo"><b>- Pedido de Venda</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Emissão de NF-e e NFC</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Controle Financeiro</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Controle de Estoque</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Cadastro de Produto</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Cadastro de Cliente</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Cadastro de Grupos</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Sintegra/Speed</b></span>
+                        <br><br>
+                    <a href="https://gestforte.juntos.vc/#/planos/contratar/3?quantidadeParcelas=1" target="_blank"><button class="btn_contratar">Contratar</button></a>
+                </div>
+                <div id="card_elite" class="card_plano" style="display: none;">
+                    <span class="sub_titulo">Confira abaixo os detalhes do<b> seu plano</b></span> 
+                        <br>
+                    <span class="sub_titulo"><b>GESTPLUS - ELITE</b></span>
+                        <br>
+                    <span class="sub_titulo">Sistema com emissão de NFE e NFC, com controle Financeiro e de Estoque Completo, com emissão de Boletos</span>
+                        <br><br>
+                    <span class="sub_titulo"><b>- Pedido de Venda</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Emissão de NF-e e NFC</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Controle Financeiro</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Controle de Estoque Completo</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Emissão de Boletos</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Cadastro de Produto</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Cadastro de Cliente</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Cadastro de Grupos</b></span>
+                        <br>
+                    <span class="sub_titulo"><b>- Sintegra/Speed</b></span>
+                        <br><br>
+                    <a href="https://gestforte.juntos.vc/#/planos/contratar/4?quantidadeParcelas=1" target="_blank"><button class="btn_contratar">Contratar</button></a>
+                </div>
+                <div id="card_nenhum" class="card_plano" style="display: none;">
+                    <span class="sub_titulo">Não foi possível definir o<b> seu plano</b></span> 
+                        <br>
+                    <span class="sub_titulo"><b>Tente novamente</b></span>
+                        <br>
+                    <span class="sub_titulo">Abaixo clique para voltar e reiniciar o quiz</span>
+                        <br>
+                        <br>
+                    <span class="sub_titulo"><b>Lembre-se de ler atentamente as perguntas e suas descrições, para obter a melhor versão do sistema específica pro seu modelo de negócio.</b></span>
+                        <br><br>
+                    <button onclick="reiniciar_quiz()" class="btn_contratar">Reiniciar Quiz</button>
+                </div>
+                    <br>
+                    
+            </div>
+        </div>
+</body>
+<script src="script.js"></script>
+</html>
