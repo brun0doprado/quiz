@@ -10,7 +10,7 @@
 
 ## Autores
 
-- [@brunodoprado](https://github.com/brun0doprado)
+- [@brun0doprado](https://github.com/brun0doprado)
 
 
 ## 🚀 Sobre mim
